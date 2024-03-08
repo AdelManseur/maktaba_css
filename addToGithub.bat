@@ -2,10 +2,15 @@
 
 setlocal enabledelayedexpansion
 
+set /p fileToAdd=<C:/Users/Lenovo/OneDrive/Maktaba_SCSS/latestFile.txt
+
 set GitHubUsername=AdelManseur
 set GitHubRepo=maktaba_css
-set FilePath=C:/Users/Lenovo/OneDrive/Maktaba_CSS/adel.css
+set FilePath=%fileToAdd%
 set CommitMessage=Add Your File
+
+REM Add the file to the local repository
+git add "%FilePath%"
 
 REM Commit the changes
 git commit -m "%CommitMessage%"
