@@ -7,9 +7,6 @@ set GitHubRepo=maktaba_css
 set FilePath=C:/Users/Lenovo/OneDrive/Maktaba_CSS/adel.css
 set CommitMessage=Add Your File
 
-REM Add the file to the local repository
-git add "%FilePath%"
-
 REM Commit the changes
 git commit -m "%CommitMessage%"
 
