@@ -2,22 +2,17 @@
 
 setlocal enabledelayedexpansion
 
-set /p fileToAdd=<C:/Users/Lenovo/OneDrive/Maktaba_SCSS/latestFile.txt
+set /p commitMessage="Enter your commit message: "
 
-set GitHubUsername=AdelManseur
-set GitHubRepo=maktaba_css
-set FilePath=%fileToAdd%
-set CommitMessage=Add Your File
-
-REM Add the file to the local repository
-git add "%FilePath%"
+REM Add changes to the staging area
+git add .
 
 REM Commit the changes
-git commit -m "%CommitMessage%"
+git commit -m "!commitMessage!"
 
-REM Push the changes to the GitHub repository
+REM Push changes to the remote repository (assuming the branch is 'master')
 git push origin master
 
-echo File added and changes pushed to GitHub.
+echo Changes committed and pushed to GitHub.
 
 pause
