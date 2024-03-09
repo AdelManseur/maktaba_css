@@ -4,12 +4,8 @@ setlocal enabledelayedexpansion
 set /p latestFILE=<latestFile.txt
 
 REM Save the latest file name to a file
-if defined latestFile (
     echo @import url('%latestFILE%') >> main.css
     echo File saved successfully.
-) else (
-    echo No files found in the current directory.
-)
 
 
 echo Press 'a' to execute the Gulp command.
