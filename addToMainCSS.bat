@@ -4,7 +4,7 @@ setlocal enabledelayedexpansion
 set /p latestFILE=<latestFile.txt
 
 REM Save the latest file name to a file
-    echo @import url('%latestFILE%'); >> main.css
+    echo @import url('%latestFILE%'); >> .main.css
     echo File saved successfully.
 
 
