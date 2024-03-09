@@ -11,7 +11,7 @@ REM Commit the changes
 git commit -m "!commitMessage!"
 
 REM Push changes to the remote repository (assuming the branch is 'master')
-git push origin master
+git push origin main
 
 echo Changes committed and pushed to GitHub.
 
