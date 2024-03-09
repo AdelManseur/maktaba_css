@@ -1,0 +1,55 @@
+@echo off
+setlocal enabledelayedexpansion
+
+REM Get multi-line SCSS code from user input
+REM echo Enter your SCSS code (press Ctrl+Z and Enter to finish):
+REM set "scssCode="
+REM for /f "delims=" %%a in ('findstr /n "^"') do (
+REM     set "line=%%a"
+REM     set "line=!line:*:=!"
+REM     if "!line!"=="" goto :break
+REM     set "scssCode=!scssCode!!line!"    
+REM )
+REM :break
+
+REM Ask for the desired file name
+set /p "fileName=Enter the desired file name (without extension): "
+
+REM Check if the file already exists and modify the name if necessary
+set "baseName=%fileName%"
+set "counter=2"
+:checkExistence
+if exist "%baseName%.scss" (
+    set "baseName=%fileName%_%counter%"
+    set /a counter+=1
+    goto :checkExistence
+)
+
+
+
+set "file_path=C:/Users/Lenovo/OneDrive/Maktaba_SCSS/SCSS_Draft/latestDraftFile.txt"
+set "file_contents="
+
+for /f "delims=" %%a in (%file_path%) do (
+    set "file_contents=!file_contents!%%a"    
+    echo %%a >> "output.txt"
+)
+
+echo %file_contents%
+
+
+REM Save SCSS code to the file
+echo Saving SCSS code to "%baseName%.scss"...
+echo %file_contents% >> "%baseName%.scss"
+
+echo File saved successfully.
+
+echo Press "a" to execute the Gulp command.
+choice /c a /n /t 10 /d a /m "Press 'a' within 10 seconds to continue..."
+
+if errorlevel 1 goto latestFile
+
+:latestFile
+./latestFile.bat
+
+pause;
